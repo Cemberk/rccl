@@ -623,7 +623,7 @@ rocm_export_targets(
   NAMESPACE roc::
   TARGETS   rccl
   DEPENDS   hip)
-
+message("log 5")
 ## Build with backwards compatibility if requested
 if(BUILD_FILE_REORG_BACKWARD_COMPATIBILITY)
   ### Create wrapper files
@@ -641,12 +641,12 @@ if(BUILD_FILE_REORG_BACKWARD_COMPATIBILITY)
     FILES ${PROJECT_BINARY_DIR}/include/rccl.h src/include/nccl_net.h
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/" )
 endif()
-
+message("log 6")
 ## Set package dependencies
 rocm_package_add_dependencies(DEPENDS "hip-rocclr >= 3.5.0" "rocm-smi-lib >= 4.0.0")
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 set(CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION "/opt" "${ROCM_PATH}")
-
+message("log 7")
 find_file (DEBIAN debian_version debconf.conf PATHS /etc)
 if(DEBIAN)
   # Write copyright file
@@ -677,7 +677,7 @@ License: See LICENSE.txt for license information\n")
   set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "ROCm Communication Collectives Library
   Optimized primitives for collective multi-GPU communication")
 endif()
-
+message("log 8")
 if(BUILD_TESTS)
   rocm_package_setup_component(clients)
   rocm_package_setup_client_component(tests)
