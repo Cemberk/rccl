@@ -683,9 +683,10 @@ if(BUILD_TESTS)
   rocm_package_setup_client_component(tests)
   add_subdirectory(test)
 endif()
-
+message("log 9")
 rocm_create_package(
   NAME        rccl
   DESCRIPTION "ROCm Communication Collectives Library"
   MAINTAINER  "RCCL Maintainer <rccl-maintainer@amd.com>"
   LDCONFIG)
+message("log 10")
