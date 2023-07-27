@@ -604,19 +604,21 @@ set_property(TARGET rccl PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 
 ## Setup librccl.so version
 rocm_set_soversion(rccl "1.0")
-
+message("log 1")
 # Install settings
 #==================================================================================================
 ## Specify install targets
 rocm_install_targets(TARGETS rccl)
 rocm_install(FILES       ${PROJECT_BINARY_DIR}/include/rccl/rccl.h src/include/nccl_net.h
              DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rccl)
+message("log 2")
 file(COPY tools/msccl-algorithms DESTINATION ${PROJECT_BINARY_DIR})
 file(COPY tools/msccl-unit-test-algorithms DESTINATION ${PROJECT_BINARY_DIR})
+message("log 3")
 ## Install Algorithm files under share folder
 install(DIRECTORY ${PROJECT_BINARY_DIR}/msccl-algorithms DESTINATION ${CMAKE_INSTALL_DATADIR}/rccl)
 install(DIRECTORY ${PROJECT_BINARY_DIR}/msccl-unit-test-algorithms DESTINATION ${CMAKE_INSTALL_DATADIR}/rccl)
-
+message("log 4")
 rocm_export_targets(
   NAMESPACE roc::
   TARGETS   rccl
